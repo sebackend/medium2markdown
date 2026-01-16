@@ -1,0 +1,28 @@
+{
+  "name": "medium-to-markdown",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "convert": "pnpm exec node index.js",
+    "commit": "pnpm exec cz"
+  },
+  "bin": {
+    "medium-to-markdown": "bin/medium-to-markdown.js"
+  },
+  "dependencies": {
+    "@mozilla/readability": "0.6.0",
+    "jsdom": "20.0.3",
+    "playwright": "1.57.0",
+    "turndown": "7.1.2"
+  },
+  "devDependencies": {
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
