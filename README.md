@@ -18,6 +18,12 @@ Convert a Medium URL and save to the default output folder:
 pnpm run convert -- "https://medium.com/@user/article-slug"
 ```
 
+Run with no arguments to use the interactive menu:
+
+```sh
+pnpm run convert
+```
+
 Output is saved in `output/` with a filename derived from the article title or URL.
 
 If you want to control the filename, redirect stdout instead:

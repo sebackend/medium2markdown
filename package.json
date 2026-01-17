@@ -11,7 +11,9 @@
     "medium-to-markdown": "bin/medium-to-markdown.js"
   },
   "dependencies": {
+    "@inquirer/prompts": "^8.2.0",
     "@mozilla/readability": "0.6.0",
+    "commander": "^14.0.2",
     "jsdom": "20.0.3",
     "playwright": "1.57.0",
     "turndown": "7.1.2"
