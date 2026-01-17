@@ -1,7 +1,10 @@
-const { Command } = require('commander');
-const pkg = require('../package.json');
+import fs from 'node:fs';
+import { Command } from 'commander';
 
-function parseArgs(argv) {
+const pkgPath = new URL('../package.json', import.meta.url);
+const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+
+export function parseArgs(argv) {
   const program = new Command();
   program
     .name('medium-to-markdown')
@@ -15,10 +18,8 @@ function parseArgs(argv) {
   return { url: url || '' };
 }
 
-function getHelp() {
+export function getHelp() {
   const program = new Command();
   program.name('medium-to-markdown').version(pkg.version).argument('[url]', 'Medium article URL');
   return program.helpInformation();
 }
-
-module.exports = { parseArgs, getHelp };

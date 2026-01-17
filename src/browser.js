@@ -1,6 +1,6 @@
-const { chromium } = require('playwright');
+import { chromium } from 'playwright';
 
-async function fetchHtml(url, options = {}) {
+export async function fetchHtml(url, options = {}) {
   const browser = await chromium.launch({ headless: true });
   let page;
   try {
@@ -20,5 +20,3 @@ async function fetchHtml(url, options = {}) {
     await browser.close().catch(() => {});
   }
 }
-
-module.exports = { fetchHtml };

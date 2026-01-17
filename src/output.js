@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
 
 function slugify(value) {
   if (!value) {
@@ -36,7 +36,7 @@ function uniqueMarkdownPath(dir, baseName) {
   return candidate;
 }
 
-function writeOutput(markdown, options = {}) {
+export function writeOutput(markdown, options = {}) {
   const stdout = options.stdout || process.stdout;
   if (!stdout.isTTY) {
     stdout.write(markdown);
@@ -51,5 +51,3 @@ function writeOutput(markdown, options = {}) {
   console.error(`Saved markdown to ${outputPath}`);
   return { outputPath };
 }
-
-module.exports = { writeOutput };

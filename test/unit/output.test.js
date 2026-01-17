@@ -2,10 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { createRequire } from 'node:module';
-
-const require = createRequire(import.meta.url);
-const { writeOutput } = require('../../src/output');
+import { writeOutput } from '../../src/output.js';
 
 describe('writeOutput', () => {
   let tempDir;

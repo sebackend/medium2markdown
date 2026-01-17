@@ -1,5 +1,6 @@
-async function promptForAction() {
-  const { select, input } = await import('@inquirer/prompts');
+import { input, select } from '@inquirer/prompts';
+
+export async function promptForAction() {
   const action = await select({
     message: 'What do you want to do?',
     choices: [
@@ -20,5 +21,3 @@ async function promptForAction() {
 
   return { action };
 }
-
-module.exports = { promptForAction };

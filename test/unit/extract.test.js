@@ -1,14 +1,11 @@
 import fs from 'node:fs';
-import path from 'node:path';
 import { describe, it, expect } from 'vitest';
-import { createRequire } from 'node:module';
-
-const require = createRequire(import.meta.url);
-const { extractReadable } = require('../../src/extract');
+import { extractReadable } from '../../src/extract.js';
 
 describe('extractReadable', () => {
   it('extracts content and metadata', () => {
-    const html = fs.readFileSync(path.join(__dirname, '..', 'fixtures', 'article.html'), 'utf8');
+    const fixturePath = new URL('../fixtures/article.html', import.meta.url);
+    const html = fs.readFileSync(fixturePath, 'utf8');
     const url = 'https://medium.com/@user/post';
     const result = extractReadable(html, url);
 

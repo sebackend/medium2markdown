@@ -1,9 +1,9 @@
-const { parseArgs, getHelp } = require('./src/args');
-const { fetchHtml } = require('./src/browser');
-const { extractReadable } = require('./src/extract');
-const { toMarkdown, prependMetadata } = require('./src/markdown');
-const { writeOutput } = require('./src/output');
-const { promptForAction } = require('./src/prompt');
+import { parseArgs, getHelp } from './src/args.js';
+import { fetchHtml } from './src/browser.js';
+import { extractReadable } from './src/extract.js';
+import { toMarkdown, prependMetadata } from './src/markdown.js';
+import { writeOutput } from './src/output.js';
+import { promptForAction } from './src/prompt.js';
 
 (async () => {
   let { url } = parseArgs(process.argv);

@@ -1,8 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { createRequire } from 'node:module';
-
-const require = createRequire(import.meta.url);
-const { parseArgs } = require('../../src/args');
+import { parseArgs } from '../../src/args.js';
 
 describe('parseArgs', () => {
   it('returns the url when provided', () => {

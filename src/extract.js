@@ -1,5 +1,7 @@
-const { JSDOM } = require('jsdom');
-const { Readability } = require('@mozilla/readability');
+import { JSDOM } from 'jsdom';
+import readability from '@mozilla/readability';
+
+const { Readability } = readability;
 
 function getMetaContent(doc, selectors) {
   for (const selector of selectors) {
@@ -14,7 +16,7 @@ function getMetaContent(doc, selectors) {
   return '';
 }
 
-function extractReadable(html, url) {
+export function extractReadable(html, url) {
   const dom = new JSDOM(html, { url });
   const doc = dom.window.document;
   const reader = new Readability(doc);
@@ -57,5 +59,3 @@ function extractReadable(html, url) {
 
   return { title, contentHtml, metadata };
 }
-
-module.exports = { extractReadable };

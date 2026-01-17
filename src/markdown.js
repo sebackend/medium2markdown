@@ -1,11 +1,11 @@
-const TurndownService = require('turndown');
+import TurndownService from 'turndown';
 
-function toMarkdown(contentHtml) {
+export function toMarkdown(contentHtml) {
   const turndown = new TurndownService({ codeBlockStyle: 'fenced' });
   return turndown.turndown(contentHtml);
 }
 
-function prependMetadata(markdown, metadata) {
+export function prependMetadata(markdown, metadata) {
   if (!metadata) {
     return markdown;
   }
@@ -26,5 +26,3 @@ function prependMetadata(markdown, metadata) {
 
   return `${lines.join('\n')}\n\n${markdown}`;
 }
-
-module.exports = { toMarkdown, prependMetadata };
