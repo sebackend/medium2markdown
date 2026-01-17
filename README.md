@@ -32,8 +32,31 @@ If you want to control the filename, redirect stdout instead:
 pnpm run convert -- "https://medium.com/@user/article-slug" > output/article.md
 ```
 
+The generated Markdown includes a metadata header as a blockquote:
+
+```
+> Title: ...
+> Source: ...
+> Author: ...
+> Published: ...
+> Canonical: ...
+```
+
 If you install the CLI as a command (via the `bin` entry), you can also run:
 
 ```sh
 medium-to-markdown "https://medium.com/@user/article-slug"
+```
+
+## Testing
+Run the unit test suite:
+
+```sh
+pnpm test
+```
+
+Watch mode:
+
+```sh
+pnpm run test:watch
 ```

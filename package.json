@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "convert": "pnpm exec node index.js",
-    "commit": "pnpm exec cz"
+    "commit": "pnpm exec cz",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "bin": {
     "medium-to-markdown": "bin/medium-to-markdown.js"
@@ -20,7 +22,8 @@
   },
   "devDependencies": {
     "commitizen": "^4.3.1",
-    "cz-conventional-changelog": "^3.3.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "vitest": "^4.0.17"
   },
   "config": {
     "commitizen": {
