@@ -1,0 +1,7 @@
+node_modules/
+output/
+playwright-report/
+test-results/
+coverage/
+.cache/
+pnpm-lock.yaml

@@ -1,9 +1,11 @@
 # medium-to-markdown
 
 ## What this does
+
 Convert Medium articles to Markdown. It loads the article in a headless browser, extracts the main content, and writes a clean Markdown file.
 
 ## Installation
+
 Requirements: Node.js 20+ and pnpm.
 
 ```sh
@@ -12,6 +14,7 @@ pnpm exec playwright install
 ```
 
 ## Usage
+
 Convert a Medium URL and save to the default output folder:
 
 ```sh
@@ -49,6 +52,7 @@ medium-to-markdown "https://medium.com/@user/article-slug"
 ```
 
 ## Testing
+
 Run the unit test suite:
 
 ```sh

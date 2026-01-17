@@ -1,17 +1,17 @@
-const { JSDOM } = require("jsdom");
-const { Readability } = require("@mozilla/readability");
+const { JSDOM } = require('jsdom');
+const { Readability } = require('@mozilla/readability');
 
 function getMetaContent(doc, selectors) {
   for (const selector of selectors) {
     const el = doc.querySelector(selector);
     if (el) {
-      const value = el.getAttribute("content");
+      const value = el.getAttribute('content');
       if (value && value.trim()) {
         return value.trim();
       }
     }
   }
-  return "";
+  return '';
 }
 
 function extractReadable(html, url) {
@@ -19,14 +19,13 @@ function extractReadable(html, url) {
   const doc = dom.window.document;
   const reader = new Readability(doc);
   const article = reader.parse();
-  const contentHtml =
-    article && article.content ? article.content : doc.body.innerHTML;
+  const contentHtml = article && article.content ? article.content : doc.body.innerHTML;
 
   const title =
     (article && article.title) ||
     getMetaContent(doc, ['meta[property="og:title"]']) ||
     doc.title ||
-    "";
+    '';
 
   const author = getMetaContent(doc, [
     'meta[name="author"]',
@@ -46,8 +45,7 @@ function extractReadable(html, url) {
     'meta[itemprop="datePublished"]',
   ]);
 
-  const canonical =
-    doc.querySelector('link[rel="canonical"]')?.getAttribute("href") || "";
+  const canonical = doc.querySelector('link[rel="canonical"]')?.getAttribute('href') || '';
 
   const metadata = {
     title,

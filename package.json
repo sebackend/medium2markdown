@@ -7,7 +7,10 @@
     "convert": "pnpm exec node index.js",
     "commit": "pnpm exec cz",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "bin": {
     "medium-to-markdown": "bin/medium-to-markdown.js"
@@ -21,8 +24,13 @@
     "turndown": "7.1.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.0.0",
+    "prettier": "^3.8.0",
     "vitest": "^4.0.17"
   },
   "config": {

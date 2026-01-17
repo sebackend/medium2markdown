@@ -1,26 +1,28 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 function slugify(value) {
-  if (!value) return "article";
+  if (!value) {
+    return 'article';
+  }
   return (
     value
-      .normalize("NFKD")
-      .replace(/[^\x00-\x7F]/g, "")
+      .normalize('NFKD')
+      .replace(/[^\x00-\x7F]/g, '')
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "")
-      .replace(/-+/g, "-") || "article"
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .replace(/-+/g, '-') || 'article'
   );
 }
 
 function baseNameFromUrl(inputUrl) {
   try {
     const parsed = new URL(inputUrl);
-    const lastSegment = parsed.pathname.split("/").filter(Boolean).pop();
-    return lastSegment || "article";
+    const lastSegment = parsed.pathname.split('/').filter(Boolean).pop();
+    return lastSegment || 'article';
   } catch {
-    return "article";
+    return 'article';
   }
 }
 
@@ -41,11 +43,11 @@ function writeOutput(markdown, options = {}) {
     return { outputPath: null };
   }
 
-  const outputDir = path.resolve(process.cwd(), "output");
+  const outputDir = path.resolve(process.cwd(), 'output');
   fs.mkdirSync(outputDir, { recursive: true });
   const baseName = slugify(options.title || baseNameFromUrl(options.url));
   const outputPath = uniqueMarkdownPath(outputDir, baseName);
-  fs.writeFileSync(outputPath, markdown, "utf8");
+  fs.writeFileSync(outputPath, markdown, 'utf8');
   console.error(`Saved markdown to ${outputPath}`);
   return { outputPath };
 }

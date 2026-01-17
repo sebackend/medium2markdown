@@ -1,24 +1,24 @@
-const { parseArgs, getHelp } = require("./src/args");
-const { fetchHtml } = require("./src/browser");
-const { extractReadable } = require("./src/extract");
-const { toMarkdown, prependMetadata } = require("./src/markdown");
-const { writeOutput } = require("./src/output");
-const { promptForAction } = require("./src/prompt");
+const { parseArgs, getHelp } = require('./src/args');
+const { fetchHtml } = require('./src/browser');
+const { extractReadable } = require('./src/extract');
+const { toMarkdown, prependMetadata } = require('./src/markdown');
+const { writeOutput } = require('./src/output');
+const { promptForAction } = require('./src/prompt');
 
 (async () => {
   let { url } = parseArgs(process.argv);
   if (!url) {
     if (process.stdout.isTTY) {
       const result = await promptForAction();
-      if (result.action === "help") {
+      if (result.action === 'help') {
         console.log(getHelp());
         return;
       }
-      if (result.action === "batch") {
-        console.error("Batch conversion not implemented yet.");
+      if (result.action === 'batch') {
+        console.error('Batch conversion not implemented yet.');
         return;
       }
-      if (result.action === "exit") {
+      if (result.action === 'exit') {
         return;
       }
       url = result.url;
@@ -41,7 +41,7 @@ const { promptForAction } = require("./src/prompt");
     const markdown = prependMetadata(markdownBody, metadata);
     writeOutput(markdown, { title, url, stdout: process.stdout });
   } catch (err) {
-    console.error("Conversion failed:", err);
+    console.error('Conversion failed:', err);
     process.exitCode = 1;
   }
 })();
