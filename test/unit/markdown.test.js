@@ -17,11 +17,11 @@ describe('markdown', () => {
     });
 
     const expected = [
-      '> Title: Title',
-      '> Source: https://example.com/source',
-      '> Author: Author',
-      '> Published: 2024-01-01',
-      '> Canonical: https://example.com/canonical',
+      '> - Title: Title',
+      '> - Source: https://example.com/source',
+      '> - Author: Author',
+      '> - Published: 2024-01-01',
+      '> - Canonical: https://example.com/canonical',
       '',
       'Body',
     ].join('\n');

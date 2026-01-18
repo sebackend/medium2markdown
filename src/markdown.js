@@ -17,11 +17,11 @@ export function prependMetadata(markdown, metadata) {
   const canonical = metadata.canonical || metadata.source || 'Unknown';
 
   const lines = [
-    `> Title: ${title}`,
-    `> Source: ${source}`,
-    `> Author: ${author}`,
-    `> Published: ${published}`,
-    `> Canonical: ${canonical}`,
+    `> - Title: ${title}`,
+    `> - Source: ${source}`,
+    `> - Author: ${author}`,
+    `> - Published: ${published}`,
+    `> - Canonical: ${canonical}`,
   ];
 
   return `${lines.join('\n')}\n\n${markdown}`;
