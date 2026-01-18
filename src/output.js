@@ -38,6 +38,7 @@ function uniqueMarkdownPath(dir, baseName) {
 
 export function writeOutput(markdown, options = {}) {
   const stdout = options.stdout || process.stdout;
+  const log = options.log !== undefined ? options.log : true;
   if (!stdout.isTTY) {
     stdout.write(markdown);
     return { outputPath: null };
@@ -48,6 +49,8 @@ export function writeOutput(markdown, options = {}) {
   const baseName = slugify(options.title || baseNameFromUrl(options.url));
   const outputPath = uniqueMarkdownPath(outputDir, baseName);
   fs.writeFileSync(outputPath, markdown, 'utf8');
-  console.error(`Saved markdown to ${outputPath}`);
+  if (log) {
+    console.error(`Saved markdown to ${outputPath}`);
+  }
   return { outputPath };
 }
